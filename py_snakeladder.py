@@ -1,3 +1,30 @@
+from random import *
+
+def initialize():
+    L=[]
+    declare=100
+    for i in range(10):
+    	l=[]
+    	for j in range(10):
+    		l.append(declare)
+    	L.append(l)
+
+    for i in range(10):
+    	if(i%2==1):
+    		m=-1
+    		n=-11
+    		o=-1
+    		for j in range(m,n,o):
+    			L[i][j]=declare
+    			declare-=1
+    	elif(i%2==0):
+    		m=0
+    		n=10
+    		o=1
+    		for j in range(m,n,o):
+    			 L[i][j]=declare
+    			 declare-=1
+    return L
 
 if __name__ == '__main__':
     print("""
@@ -9,4 +36,5 @@ if __name__ == '__main__':
 
     """)
 
-    
+    L=initialize()
+    print (L)
