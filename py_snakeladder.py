@@ -42,5 +42,21 @@ if __name__ == '__main__':
 
     """)
 
+    n=True
+    sum=[0,0,0,0]
+    prevalue=[100,100,100,100]
+    prev_a=[0,0,0,0]
+    prev_b=[0,0,0,0]
+    player=name=stager=["","","",""]
+
     L=initialize()
     printb(L)
+
+    noofplayers=int(input("How many Players are playing: "))
+    for i in range(noofplayers):
+        player[i]=str(input("Enter name of "+str(i+1)+" Player: "))
+        player[i]=player[i].capitalize()
+        name[i]=player[i]
+        stager[i]=player[i][0]
+        stager[i]="["+stager[i]+"]"
+        player[i]+="'s"
