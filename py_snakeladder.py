@@ -26,6 +26,12 @@ def initialize():
     			 declare-=1
     return L
 
+def printb(L):
+    for a in range(10):
+        for b in range(10):
+            print(L[a][b],end=" ")
+        print("")
+
 if __name__ == '__main__':
     print("""
     Welcome to Snake&Ladders v0.9
@@ -37,4 +43,4 @@ if __name__ == '__main__':
     """)
 
     L=initialize()
-    print (L)
+    printb(L)
