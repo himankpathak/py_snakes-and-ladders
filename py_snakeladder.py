@@ -41,6 +41,50 @@ def diceprogram():
 	|*_____*|""")
 	return dice
 
+def snakeladder(sumtake):
+	if(sumtake==2):
+		print("Yay! You found a ladder")
+		print("Jump To 76")
+		sumtake=76
+	elif(sumtake==12):
+		print("Yay! You found a ladder")
+		print("Jump To 50")
+		sumtake=50
+	elif(sumtake==32):
+		print("Yay! You found a ladder")
+		print("Jump To 59")
+		sumtake=59
+	elif(sumtake==45):
+		print("Yay! You found a ladder")
+		print("Jump To 82")
+		sumtake=82
+	elif(sumtake==69):
+		print("Yay! You found a ladder")
+		print("Jump To 77")
+		sumtake=77
+	elif(sumtake==40):
+		print("Damn! A Snake bit you")
+		print("Slide To 16")
+		sumtake=16
+	elif(sumtake==60):
+		print("Damn! A Snake bit you")
+		print("Slide To 25")
+		sumtake=25
+	elif(sumtake==74):
+		print("Damn! A Snake bit you")
+		print("Slide To 50")
+		sumtake=50
+	elif(sumtake==88):
+		print("Damn! A Snake bit you")
+		print("Slide To 41")
+		sumtake=41
+	elif(sumtake==92):
+		print("Damn! A Snake bit you")
+		print("Slide To 12")
+		sumtake=12
+	halt=input()
+	return sumtake
+
 def initialize():
 	L=[]
 	declare=100
@@ -93,6 +137,8 @@ def maingame(noofplayers,L,name,player,stager):
 			dice=diceprogram()
 			halt=input("Press enter to move your marker")
 			sum[i]=sum[i]+dice
+
+			sum[i]=snakeladder(sum[i])
 
 			if(sum[i]==100):
 				n=False
