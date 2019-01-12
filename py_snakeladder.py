@@ -1,5 +1,46 @@
 import copy,random
 
+def diceprogram():
+	dice=random.randint(1,6)
+	print("You got "+str(dice),end="")
+	if(dice==1):
+		print("""
+	 _______
+	|       |
+	|   *   |
+	|_______|""")
+	elif(dice==2):
+		print("""
+	 _______
+	|       |
+	|*     *|
+	|_______|""")
+	elif(dice==3):
+		print("""
+	 _______
+	|       |
+	|*  *  *|
+	|_______|""")
+	elif(dice==4):
+		print("""
+	 _______
+	|*     *|
+	|       |
+	|*_____*|""")
+	elif(dice==5):
+		print("""
+	 _______
+	|*     *|
+	|   *   |
+	|*_____*|""")
+	elif(dice==6):
+		print("""
+	 _______
+	|*     *|
+	|*     *|
+	|*_____*|""")
+	return dice
+
 def initialize():
 	L=[]
 	declare=100
@@ -27,10 +68,12 @@ def initialize():
 	return L
 
 def printb(L):
+	print("")
 	for a in range(10):
 		for b in range(10):
 			print(L[a][b],end=" ")
 		print("")
+	print("")
 
 def maingame(noofplayers,L,name,player,stager):
 	n=True
@@ -47,8 +90,7 @@ def maingame(noofplayers,L,name,player,stager):
 
 			print(player[i]+" turn",end="")
 			halt=input()
-			dice=random.randint(1,6)
-			print("You got "+str(dice))
+			dice=diceprogram()
 			halt=input("Press enter to move your marker")
 			sum[i]=sum[i]+dice
 
@@ -84,14 +126,14 @@ if __name__ == '__main__':
 	Instructions:
 	1. Everybody plays with the initials of their names
 	2. Your dice is rolled automatically when it's your turn
+	3. Your token will move ahead automatically
+	4. Reach the tile 100 with your token to win the game
 
 	""")
 
 	name=stager=["","","",""]
 	player=[]
-
 	L=initialize()
-	printb(L)
 
 	noofplayers=int(input("How many Players are playing: "))
 	for i in range(noofplayers):
@@ -101,5 +143,4 @@ if __name__ == '__main__':
 		stager[i]=player[i][0]
 		player[i]+="'s"
 
-	print("")
 	maingame(noofplayers,L,name,player,stager)
