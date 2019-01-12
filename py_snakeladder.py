@@ -1,4 +1,5 @@
 import copy,random
+from colorama import Fore, Style
 
 def diceprogram():
 	dice=random.randint(1,6)
@@ -42,48 +43,50 @@ def diceprogram():
 	return dice
 
 def snakeladder(sumtake):
+	newsum=0
 	if(sumtake==2):
 		print("Yay! You found a ladder")
 		print("Jump To 76")
-		sumtake=76
+		newsum=76
 	elif(sumtake==12):
 		print("Yay! You found a ladder")
 		print("Jump To 50")
-		sumtake=50
+		newsum=50
 	elif(sumtake==32):
 		print("Yay! You found a ladder")
 		print("Jump To 59")
-		sumtake=59
+		newsum=59
 	elif(sumtake==45):
 		print("Yay! You found a ladder")
 		print("Jump To 82")
-		sumtake=82
+		newsum=82
 	elif(sumtake==69):
 		print("Yay! You found a ladder")
 		print("Jump To 77")
-		sumtake=77
+		newsum=77
 	elif(sumtake==40):
 		print("Damn! A Snake bit you")
 		print("Slide To 16")
-		sumtake=16
+		newsum=16
 	elif(sumtake==60):
 		print("Damn! A Snake bit you")
 		print("Slide To 25")
-		sumtake=25
+		newsum=25
 	elif(sumtake==74):
 		print("Damn! A Snake bit you")
 		print("Slide To 50")
-		sumtake=50
+		newsum=50
 	elif(sumtake==88):
 		print("Damn! A Snake bit you")
 		print("Slide To 41")
-		sumtake=41
+		newsum=41
 	elif(sumtake==92):
 		print("Damn! A Snake bit you")
 		print("Slide To 12")
-		sumtake=12
-	halt=input()
-	return sumtake
+		newsum=12
+	if(newsum):
+		halt=input()
+	return newsum
 
 def initialize():
 	L=[]
@@ -111,11 +114,15 @@ def initialize():
 				declare-=1
 	return L
 
-def printb(L):
+def printb(L,Lnew,sum):
 	print("")
 	for a in range(10):
 		for b in range(10):
-			print(L[a][b],end=" ")
+			if(sum[0]==Lnew[a][b] or sum[1]==Lnew[a][b] or sum[2]==Lnew[a][b] or sum[3]==Lnew[a][b]):
+				print(Fore.RED + str(L[a][b]),end="")
+				print(Style.RESET_ALL,end=" ")
+			else:
+				print(L[a][b],end=" ")
 		print("")
 	print("")
 
@@ -129,7 +136,7 @@ def maingame(noofplayers,L,name,player,stager):
 
 	while(n==True):
 		for i in range(noofplayers):
-			printb(L)
+			printb(L,Lnew,sum)
 			L[prev_a[i]][prev_b[i]]=prevalue[i]
 
 			print(player[i]+" turn",end="")
