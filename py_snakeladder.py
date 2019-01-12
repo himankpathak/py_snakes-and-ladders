@@ -4,33 +4,34 @@ def initialize():
 	L=[]
 	declare=100
 	for i in range(10):
-	l=[]
-	for j in range(10):
-	l.append(declare)
-	L.append(l)
+		l=[]
+		for j in range(10):
+			l.append(declare)
+		L.append(l)
 
 	for i in range(10):
-	if(i%2==1):
-	m=-1
-	n=-11
-	o=-1
 	for j in range(m,n,o):
-	L[i][j]=declare
-	declare-=1
-	elif(i%2==0):
-	m=0
-	n=10
-	o=1
-	for j in range(m,n,o):
-	 L[i][j]=declare
-	 declare-=1
+		if(i%2==1):
+			m=-1
+			n=-11
+			o=-1
+			for j in range(m,n,o):
+				L[i][j]=declare
+				declare-=1
+		elif(i%2==0):
+			m=0
+			n=10
+			o=1
+			for j in range(m,n,o):
+				L[i][j]=declare
+				declare-=1
 	return L
 
 def printb(L):
 	for a in range(10):
-	for b in range(10):
-	print(L[a][b],end=" ")
-	print("")
+		for b in range(10):
+			print(L[a][b],end=" ")
+		print("")
 
 
 
@@ -44,23 +45,17 @@ if __name__ == '__main__':
 
 	""")
 
-	n=True
-	sum=[0,0,0,0]
-	prevalue=[100,100,100,100]
-	prev_a=[0,0,0,0]
-	prev_b=[0,0,0,0]
-	player=name=stager=["","","",""]
+	name=stager=["","","",""]
+	player=[]
 
 	L=initialize()
 	printb(L)
 
 	noofplayers=int(input("How many Players are playing: "))
 	for i in range(noofplayers):
-	player[i]=str(input("Enter name of "+str(i+1)+" Player: "))
-	player[i]=player[i].capitalize()
-	name[i]=player[i]
-	stager[i]=player[i][0]
-	stager[i]="["+stager[i]+"]"
-	player[i]+="'s"
+		player.append(str(input("Enter name of "+str(i+1)+" Player: ")))
+		player[i]=player[i].capitalize()
+		name[i]=player[i]
+		stager[i]=player[i][0]
+		player[i]+="'s"
 
-	maingame()
