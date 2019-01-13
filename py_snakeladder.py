@@ -174,7 +174,7 @@ def maingame(noofplayers,L,name,player,stager):
 
 if __name__ == '__main__':
 	print("""
-	Welcome to Snake&Ladders v0.9
+	Welcome to Snake&Ladders v1.2
 
 	Instructions:
 	1. Everybody plays with the initials of their names
